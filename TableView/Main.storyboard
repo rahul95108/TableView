@@ -43,7 +43,7 @@
                                 </constraints>
                                 <state key="normal" title="Google +"/>
                                 <connections>
-                                    <action selector="btnGplus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lVA-JJ-ocq"/>
+                                    <action selector="btnGplus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f1Q-oF-NFS"/>
                                 </connections>
                             </button>
                         </subviews>

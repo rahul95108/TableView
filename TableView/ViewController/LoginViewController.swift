@@ -1,10 +1,11 @@
 
 import UIKit
+import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
 import SlideMenuController
 
-class LoginViewController: UIViewController{
+class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate{
     
     // MARK: - UIView Life Cycle Methods -
 
@@ -15,7 +16,9 @@ class LoginViewController: UIViewController{
             print("Yes")
         }
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self as! UIGestureRecognizerDelegate Date;
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().clientID = "912972526928-6t9mi53r10rejjcvsij70l811l8inij4.apps.googleusercontent.com"
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -58,7 +61,31 @@ class LoginViewController: UIViewController{
         })
     }
     
+    // MARK: - Sign In Delegate -
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if (error == nil)
+        {
+            // Perform any operations on signed in user here.
+            let userId = user.userID // For client-side use only!
+            let idToken = user.authentication.idToken //Safe to send to the server
+            let name = user.profile.name
+            let email = user.profile.email
+            let userImageURL = user.profile.imageURL(withDimension: 200)
+            print(userId!)
+            print(idToken!)
+            print(name!)
+            print(email!)
+            print(userImageURL!)
+        }
+        else
+        {
+            print("\(error.localizedDescription)")
+        }
+    }
+    
     @IBAction func btnGplus(_ sender: AnyObject){
-        
+        GIDSignIn.sharedInstance().signOut()
+        GIDSignIn.sharedInstance().signIn()
     }
 }
