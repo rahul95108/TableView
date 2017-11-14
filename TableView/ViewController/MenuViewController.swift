@@ -13,7 +13,7 @@ class MenuViewController: UIViewController, UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
         
 
-        items = ["  SHOP  ": ["Supplements"], "  KNOWLEDGE  ": ["Articles", "Courses"],"  TRAINING  ": ["Training Plans", "My Orders", "Settings", "GAP"]]
+        items = ["  SHOP  ": ["Supplements"], "  KNOWLEDGE  ": ["Articles", "Courses"],"  TRAINING  ": ["Core Data", "My Orders", "Settings", "GAP"]]
         arrSectionTitle = items.allKeys as NSArray
     }
 

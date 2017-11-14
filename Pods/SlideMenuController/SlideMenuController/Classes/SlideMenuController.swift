@@ -32,8 +32,8 @@ public class SlideMenuController: BaseViewController {
   
   public var animationDuration: TimeInterval = 0.45
   
-  public var leftVisibleWidthPercentage: CGFloat = 0.65 // 0 ~ 1
-  public var rightVisibleWidthPercentage: CGFloat = 0.65 // 0 ~ 1
+  public var leftVisibleWidthPercentage: CGFloat = 0.8 // 0 ~ 1
+  public var rightVisibleWidthPercentage: CGFloat = 0.8 // 0 ~ 1
   
   public var allowedRightSwipe: Bool = true
   public var allowedLeftSwipe: Bool = true

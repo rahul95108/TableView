@@ -19,7 +19,18 @@ class LoginViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDeleg
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().clientID = "912972526928-6t9mi53r10rejjcvsij70l811l8inij4.apps.googleusercontent.com"
+        
+        var x = -1 ,y = 1, sum = 0;
+        for _ in 0..<10 {
+            
+            sum = x+y;
+            x   = y;
+            y   = sum;
+            
+            print(sum);
+        }
     }
+   
     
     override func viewDidDisappear(_ animated: Bool) {
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true;
